@@ -1,0 +1,334 @@
+@font-face {
+  font-family: myFonts;
+  src: url(fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  /*Gets smaller when widow get smaller*/
+  box-sizing: border-box;
+}
+
+body{
+  font-family:myFonts;
+  color: black;
+  background-color: #F5F5F5 ;
+}
+
+a .LauLogo{
+
+  height: 145px;
+  width: 330px;
+  background-image: url(photos/LauLogo.png);
+  background-repeat: no-repeat;
+  background-size:contain;
+  
+  margin-top: 35px;
+  margin-left: 50px;
+
+  
+  
+}
+
+@media only screen and (max-width:768px){
+  a .LauLogo{
+    
+    margin: 40px auto;
+    max-width: 90%;
+    
+  }
+}
+
+
+
+@media only screen and (min-width:1232px){
+  a .LauLogo{
+    margin-top: 35px;
+     margin-left: 10%;
+  
+  }
+}
+@media only screen and (min-width:1600px){
+  a .LauLogo{
+    margin-top: 35px;
+     margin-left: 20%;
+  
+  }
+}
+
+@media only screen and (min-width:3200px){
+  a .LauLogo{
+    margin-top: 35px;
+     margin-left: 23%;
+  
+  }
+}
+
+
+.text-box{
+	
+	font-size: 17px;
+	letter-spacing: 1px;
+	line-height: 15px;
+	position: absolute;
+	left: 50%;
+	top: 350px;
+	transform: translateX(-50%) translateY(-40%);
+  padding-bottom: 50px;
+  padding-top: 15px;
+
+}
+
+
+
+@media only screen and (max-width:768px){
+  .text-box{
+    padding-bottom: 90px;
+    padding-top: 35px;
+  }
+
+  .container{
+    margin-top: 80px;
+  }
+  
+}
+
+
+@media only screen and (min-width:769px){
+ 
+  .container{
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (min-width:900px){
+ 
+
+  .text-box{
+    padding-bottom: 90px;
+    padding-top: 20px;
+    top: 320px;
+  }
+
+  .container{
+    margin-top: 0px;
+  }
+
+
+}
+
+.text-box h1{
+	font-size: 45px;
+	line-height: 55px;
+}
+
+.auto-input{
+	color:#034f3d;
+}
+
+
+.container .timeline a{
+  color: green;
+}
+
+@media only screen and (max-width:768px){
+  .timeline-content p{
+    margin-bottom: 7px;
+  }
+}
+
+.container{
+  min-height: 100vh;
+  width: 100%;
+  /*Space from up and down*/
+  padding-top: 280px;
+  padding-bottom: 50px;
+  
+  /*position of text*/
+  display: flex;
+  /*position of text height*/
+  align-items: center;
+  /*position of text width*/
+  justify-content: center;
+  
+  align-items: center;
+  
+}
+
+.timeline{
+  /*Size  of the box where the text
+  No matter the the window size*/
+  width: 80%;
+  /*auto to contain many blocks ifc we have 8 blocks the height will be adjusted to contain 8*/
+  height: auto;
+  max-width: 1100px;
+  position: relative;
+  margin: 0 auto;
+  
+  
+}
+
+.timeline ul {
+  /*remove dots*/
+  list-style: none;
+}
+
+.timeline ul li{
+  /*space between each text link*/
+  padding: 20px;
+  background-color:#90EE91 ;
+  border-radius: 10px;
+  color: black;
+  /*space between each div block link
+  more value more space*/
+  margin-bottom: 20px;
+}
+
+/*Removing the space between last link and footer*/
+/*Selecting last link*/
+.timeline ul li:last-child{
+  margin-bottom: 0;
+}
+
+.timeline-content h1{
+  font-size: 25px;
+  line-height: 30px;
+  margin-bottom:8px ;
+}
+
+.timeline-content p{
+  font-size: 18px;
+  font-weight: 500;
+  line-height:30px ;
+}
+/*Date*/
+.timeline-content .date{
+  font-size: 14px;
+  font-weight: 530;
+  line-height:30px ;
+  letter-spacing: 2px;
+}
+
+/*Media query responsive timeline*/
+/*This will apply when we are on tablet screen which is according to google the min is 768px*/
+/*Applicable for desktop*/
+@media only screen and (min-width:768px){
+  /*Creating line*/
+  .timeline::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    height: 100%;
+    width: 2px;
+    background-color: grey;
+    /*For perfect centering -left value*/
+    transform: translateX(-50%);
+  }
+  /*----------------------*/
+  .timeline ul li{
+    /*50% of timeline width 800x this means 400px*/
+    width: 50%;
+    margin-bottom: 25px;
+  }
+  /*first third fifth... link*/
+  .timeline ul li:nth-child(odd){
+    float: left;
+    /*remove what next to it*/
+    clear: right;
+    /*creating space between link block and the line using transform to moveit*/
+    transform: translateX(-20px);
+  }
+  /*second forth ... link*/
+  .timeline ul li:nth-child(even){
+    float: right;
+    /*remove what next to it*/
+    clear: left;
+    transform: translateX(20px);
+  }
+  /*Creating the (lamps) to indicate the link block*/
+  .timeline ul li::after{
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    top:0px;
+  }
+  .timeline ul li:nth-child(odd)::after{
+    top: 25px;
+    right:-30px;
+  }
+  .timeline ul li:nth-child(even)::after{
+    top: 25px;
+    left:-30px;
+    /*Creating the (light effect) to indicate the link block*/
+  }
+  .timeline ul li:hover:after{
+    background-color: greenyellow;
+  }
+}
+
+/*Footer*/
+.footer{
+  padding: 40px 0;
+  background-color:#034f3d;
+}
+
+.footer .social{
+  text-align: center;
+  padding-bottom: 25px;
+  
+}
+
+.footer .social a{
+  font-size: 24px;
+  color: white;
+  border: 1px solid rgb(181, 181, 181);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  margin: 0 28px;
+  opacity: 0.75;
+}
+
+.footer .social a:hover{
+  opacity: 0.95;
+}
+
+.footer ul {
+  margin-top: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 18px;
+  line-height: 1.6px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.footer ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer ul li a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer ul li {
+  display: inline-block;
+  padding: 0 25px;
+}
+
+.footer .copyright{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: white;
+  letter-spacing: 3px;
+}
+
